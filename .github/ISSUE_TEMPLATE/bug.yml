@@ -31,6 +31,18 @@ body:
       render: shell
     validations:
       required: true
+  - type: textarea
+    id: how-to-verify
+    attributes:
+      label: How to verify the fix
+      description: >-
+        The same steps as above, using only the install line and the documented commands,
+        and what should be seen instead once the bug is fixed.
+      placeholder: |
+        1. <command> --json
+           You should see: <the correct output, not the error>
+    validations:
+      required: true
   - type: input
     id: version-os
     attributes:
