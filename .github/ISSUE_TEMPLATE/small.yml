@@ -1,0 +1,32 @@
+name: Small change
+description: A one-line change that can be done in one sitting.
+title: "[Small]: "
+labels: ["batch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each field below becomes a `### <Label>` heading in the issue body.
+        Filing from the CLI? Use `gh issue create --title "..." --body-file issue.md`
+        with the same `### <Label>` headings.
+  - type: input
+    id: change
+    attributes:
+      label: The change
+      description: One line.
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: File or area
+    validations:
+      required: true
+  - type: textarea
+    id: check
+    attributes:
+      label: Check that proves it is done
+      description: A command or test a machine can run.
+      render: shell
+    validations:
+      required: true
