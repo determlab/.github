@@ -1,0 +1,74 @@
+name: Feature
+description: A new capability with one clear outcome.
+title: "[Feature]: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each field below becomes a `### <Label>` heading in the issue body.
+        Filing from the CLI? Use `gh issue create --title "..." --body-file issue.md`
+        with the same `### <Label>` headings. An issue that is missing a required heading is not ready to work on.
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome
+      description: One sentence. What a user or agent can do after this change.
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Files that change
+      description: The files or directories this change touches.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What this issue does not do.
+    validations:
+      required: true
+  - type: textarea
+    id: agent-path
+    attributes:
+      label: Agent path
+      description: How an agent uses this capability, and the one command that shows it working.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: dod
+    attributes:
+      label: Definition of done
+      description: Checks a machine can run. One line must produce the same kind of evidence as the sample below.
+      value: |
+        - [ ] 
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample
+      description: A real input or output, not a made-up one.
+    validations:
+      required: true
+  - type: input
+    id: fence
+    attributes:
+      label: Fence you expect to hit
+      description: A protected path this change touches, or "none".
+      placeholder: none
+    validations:
+      required: false
+  - type: dropdown
+    id: expected-type
+    attributes:
+      label: Expected type
+      description: "A: can merge after automated review and green CI. B: needs a maintainer to confirm before merge."
+      options:
+        - A
+        - B
+    validations:
+      required: true

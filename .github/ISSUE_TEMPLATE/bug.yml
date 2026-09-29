@@ -1,0 +1,40 @@
+name: Bug
+description: Something does not work as documented.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each field below becomes a `### <Label>` heading in the issue body.
+        Filing from the CLI? Use `gh issue create --title "..." --body-file issue.md`
+        with the same `### <Label>` headings.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: Include the exact error text.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: One command if possible.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: version-os
+    attributes:
+      label: Version and OS
+      placeholder: "e.g. 0.2.1, Ubuntu 24.04, Python 3.12"
+    validations:
+      required: true

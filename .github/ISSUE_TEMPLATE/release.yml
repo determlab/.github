@@ -1,0 +1,47 @@
+name: Release
+description: Publish a new version.
+title: "[Release]: "
+labels: ["release"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Each field below becomes a `### <Label>` heading in the issue body.
+        Filing from the CLI? Use `gh issue create --title "..." --body-file issue.md`
+        with the same `### <Label>` headings.
+        The release is published from the exact candidate commit that passed the gate.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Following RELEASING.md in this repository.
+      placeholder: "e.g. 0.3.0"
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: Changes included
+      description: Link each issue or pull request.
+    validations:
+      required: true
+  - type: textarea
+    id: gate-checks
+    attributes:
+      label: Gate checks that must be green
+    validations:
+      required: true
+  - type: input
+    id: candidate-sha
+    attributes:
+      label: Candidate commit SHA
+      description: The full commit SHA that is published. It must be the commit the gate ran on.
+    validations:
+      required: true
+  - type: input
+    id: gate-run
+    attributes:
+      label: Gate run link
+      description: Link to the CI run that passed the gate on the candidate commit.
+    validations:
+      required: true
