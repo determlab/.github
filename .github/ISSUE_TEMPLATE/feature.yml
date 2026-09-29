@@ -39,6 +39,20 @@ body:
     validations:
       required: true
   - type: textarea
+    id: how-to-test
+    attributes:
+      label: How to test as a user
+      description: >-
+        Numbered steps a person or agent runs, using only the install line and the documented commands.
+        After each step, write "You should see: ..." with the expected output. Prefer `--json` output.
+      placeholder: |
+        1. pip install <package>
+           You should see: Successfully installed <package>
+        2. <command> --json
+           You should see: {"ok": true, ...}
+    validations:
+      required: true
+  - type: textarea
     id: dod
     attributes:
       label: Definition of done

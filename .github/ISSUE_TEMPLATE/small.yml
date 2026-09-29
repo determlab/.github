@@ -30,3 +30,11 @@ body:
       render: shell
     validations:
       required: true
+  - type: input
+    id: how-to-see
+    attributes:
+      label: How to see it works
+      description: One command or one screen, and the expected result.
+      placeholder: "e.g. <command> --version -> prints 0.3.1"
+    validations:
+      required: true
